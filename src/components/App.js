@@ -1,16 +1,21 @@
 import { Component } from "react";
 import { QuizList } from "./QuizList/QuizList";
+import initialQuizItems from '../data.json';
+import { SearchBar } from "./SearchBar/SearchBar";
+
 
 
 export class App extends Component {
   state = {
-    quizItems: []
+    quizItems: initialQuizItems,
   };
 
   render() {
-    return <div>
-  <QuizList />
-</div>
-  } 
-  
+    return (
+      <div>
+        <SearchBar/>
+        <QuizList items={ this.state.quizItems} />
+      </div>
+    );
+  }
 }
