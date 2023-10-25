@@ -16,7 +16,7 @@ export class App extends Component {
   };
 
   deleteQuizItem = quizId => {
-    this.satState(prevState => ({
+    this.setState(prevState => ({
       quizItems: prevState.quizItems.filter(quiz => quiz.id !== quizId),
     }))
   };
@@ -45,7 +45,7 @@ export class App extends Component {
   
   render() {
     const { filters } = this.state;
-    const visibleItems = this.getVisibleItems;
+    const visibleItems = this.getVisibleItems();
 
     return (
       <div>
