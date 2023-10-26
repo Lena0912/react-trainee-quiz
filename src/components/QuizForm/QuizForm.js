@@ -1,15 +1,15 @@
-import { Formik, Field, Form, ErrorMessage } from 'formik';
+import { Formik, Field} from 'formik';
 import * as Yup from 'yup';
-
+import { StyledForm, ErrMassage } from './QuizForm.styled';
 
 const quizSchema = Yup.object().shape({
   topic: Yup.string().min(3, 'Too short!').required('The field is required!'),
   time: Yup.number()
     .min(10, 'Min 10 mins')
-    .max(45, 'Max 45 mins')    
+    .max(45, 'Max 45 mins')
     .required('This field is required'),
   questions: Yup.number()
-    .min(3, 'Min 3 questions')    
+    .min(3, 'Min 3 questions')
     .required('This field is required'),
   level: Yup.string()
     .oneOf(['beginner', 'intermediate', 'advanced'])
@@ -26,28 +26,28 @@ export const QuizForm = ({ onAdd }) => {
         level: 'beginner',
       }}
       validationSchema={quizSchema}
-      onSubmit={(values, actions) => {          
-          onAdd(values);
+      onSubmit={(values, actions) => {
+        onAdd(values);
         actions.resetForm();
       }}
     >
-      <Form>
+      <StyledForm>
         <label>
           Topic
           <Field name="topic" />
-          <ErrorMessage name="topic" />
+          <ErrMassage name="topic" component="div" />
         </label>
 
         <label>
           Time
           <Field type="number" name="time" />
-          <ErrorMessage name="time" />
+          <ErrMassage name="time" component="div" />
         </label>
 
         <label>
           Questions
           <Field type="number" name="questions" />
-          <ErrorMessage name="questions" />
+          <ErrMassage name="questions" component="div" />
         </label>
 
         <label>
@@ -60,7 +60,7 @@ export const QuizForm = ({ onAdd }) => {
         </label>
 
         <button type="submit">Add quiz</button>
-      </Form>
+      </StyledForm>
     </Formik>
   );
 };

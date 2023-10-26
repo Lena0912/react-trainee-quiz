@@ -3,7 +3,7 @@ import { nanoid } from "nanoid";
 import { QuizList } from "./QuizList/QuizList";
 import initialQuizItems from '../data.json';
 import { SearchBar } from "./SearchBar/SearchBar";
-import { QuizForm } from "./QuizCard/QuizForm";
+import { QuizForm } from "./QuizForm/QuizForm";
 
 
 
