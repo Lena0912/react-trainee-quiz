@@ -1,7 +1,7 @@
 export const QuizCard = ({ quiz: {id, topic, level, time, questions },
     onDelete,
 }) => {
-    onDelete(id);
+    
     return (
       <div>
         <h2>{topic}</h2>
