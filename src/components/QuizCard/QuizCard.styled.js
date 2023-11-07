@@ -14,6 +14,7 @@ const getBorderColor = ({theme, level}) => {
 };
 
 export const Container = styled.div`
+padding: ${p => p.theme.spacing(2)};
 border: 3px solid ${getBorderColor};
 border-radius: ${p => p.theme.radii.sm};
 
